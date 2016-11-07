@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <h2>Поздравляем! Вы вошли. Теперь можете загрузить свои файлы сюда:</h2>
+
+    <form enctype="multipart/form-data" class="UploadFileForm" action="/upload_file/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Сохранить" />
+    </form>
+
+    <form action="/download/" method="get">
+        <ul>
+            {% csrf_token %}
+            {% for file in files %}
+            <a href="ulpload_file/download/{{ file }}"><li>{{ file }}</li></a>
+            {% endfor %}
+        </ul>
+    </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+    
+    {% block login_form %}
+    {% endblock %}
+</body>
+</html>
+{% block scripts %}
+{% endblock %}
